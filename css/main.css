@@ -1,0 +1,169 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Light.ttf");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Regular.ttf");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Medium.ttf");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Bold.ttf");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal; }
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../fonts/Montserrat-Black.ttf");
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal; }
+html, body {
+  margin: 0px;
+  padding: 0px;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  color: #00065B;
+  background: #fff; }
+
+a {
+  color: #01D684;
+  text-decoration: none; }
+  a:hover {
+    color: #009E61;
+    text-decoration: underline; }
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1408px;
+  margin: 0 auto; }
+
+header .container {
+  height: 104px; }
+header nav ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; }
+header nav a {
+  color: #00065B;
+  text-transform: uppercase; }
+  header nav a:hover {
+    text-decoration: none; }
+header nav > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none; }
+  header nav > ul > li {
+    position: relative;
+    padding: 0 0 5px;
+    /*  SUBMENU LVL1*/ }
+    header nav > ul > li:not(:first-child) {
+      margin-left: 32px; }
+    header nav > ul > li.has-children > a:after {
+      content: '';
+      display: block;
+      margin: 0 0 0 8px;
+      width: 16px;
+      height: 16px;
+      background: url("../img/chevron-down.svg") center center no-repeat;
+      background-size: 10px; }
+    header nav > ul > li > a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0 8px;
+      line-height: 28px;
+      font-weight: 700; }
+      header nav > ul > li > a:before {
+        content: '';
+        display: block;
+        height: 0;
+        background: #01D684;
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        bottom: -4px;
+        z-index: 1;
+        transition: height 200ms linear; }
+      header nav > ul > li > a:focus, header nav > ul > li > a:active, header nav > ul > li > a:hover {
+        color: #00065B; }
+    header nav > ul > li:hover > a:before {
+      height: 4px; }
+    header nav > ul > li ul {
+      display: none;
+      position: absolute;
+      top: 32px;
+      left: auto;
+      right: auto;
+      z-index: 10;
+      width: 240px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0px 3px 15px 0px #00065B1A; }
+      header nav > ul > li ul li {
+        position: relative; }
+        header nav > ul > li ul li:not(:first-child) {
+          border-top: 1px solid #E7F0FF; }
+        header nav > ul > li ul li a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          padding: 16px;
+          line-height: 24px;
+          font-weight: 700;
+          font-size: 0.875em;
+          color: #00065B; }
+        header nav > ul > li ul li.has-children > a:after {
+          content: '';
+          display: block;
+          margin: 0 0 0 8px;
+          width: 16px;
+          height: 16px;
+          background: url("../img/chevron-down.svg") center center no-repeat;
+          background-size: 10px;
+          transform: rotate(-90deg); }
+      header nav > ul > li ul ul {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: -240px;
+        z-index: 9;
+        border-top-left-radius: 0px; }
+  header nav > ul li:hover > a {
+    color: #01D684; }
+  header nav > ul li:hover > ul {
+    display: block; }
+
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/style.scss to edit this template
+*/
+/*
+    Created on : 10. 3. 2024, 10:36:54
+    Author     : janma
+*/
+
+/*# sourceMappingURL=main.css.map */
