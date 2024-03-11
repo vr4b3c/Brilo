@@ -1,23 +1,101 @@
-
 .container {
-    @include d-flex-between-middle;
-    
+    @include d-flex-between-middle; 
+
     max-width: 1408px;
-    margin: 0 auto;
+    margin: 0 auto; 
+    
+    .centered-text {
+        max-width: 928px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .buttons {
+        display: flex;
+        gap: $unit * 2;
+        margin-top: $unit * 4;
+        
+        &.centered {
+            justify-content: center;
+        }
+    }
+} 
+
+section {
+    padding-top: 116px;
+    padding-bottom: 116px;
+    
+    &.with-background {
+        background-color: $color-primary-100;
+    }
+    &.no-padding-top {
+        padding-top: 0;
+    }
+
+    
+    .container { 
+
+        .half {
+            padding-left: $unit * 1.5;
+            padding-right: $unit * 1.5;      
+            flex-basis: calc(50% - #{$unit} * 3);
+
+
+            &.with-image {
+                display: flex;     
+                justify-content: flex-end;   
+                padding-right: 0;
+                padding-left: 0;
+
+                &:first-child {
+                    justify-content: flex-start;       
+                }
+
+                img {
+                    display: block;
+                    max-width: calc(50vw - 3 * #{$unit});
+                    height: auto;
+                }
+            }
+
+            & + .half {
+
+            }
+        }
+
+    }  
+    
+
 }
 
-
-
+ 
 
 header {
     
     .container {
+        @include d-flex-between-middle;
+        
         height: 104px;
     }
 
-    
+    #logo {
+        @include d-flex-between-middle;    
+        
+        img {
+            display: block;
+        }
+    }
     
     nav {
+        
+        #toggle-menu {
+            display: none;
+            width: $unit * 2;
+            height: $unit * 2;
+            border: 0px;
+            background: transparent url('../img/hamburger.svg') center center no-repeat;
+            background-size: contain;
+            z-index: 1000;
+        }
         
         ul {
             list-style-type: none;
@@ -25,9 +103,11 @@ header {
             margin: 0px;
         }
 
+        
         a {
-            color: $color-primary;
+            color: $color-primary-900;
             text-transform: uppercase;
+            
             
             &:hover {
                 text-decoration: none;    
@@ -35,25 +115,25 @@ header {
         }
         
         
-        
         > ul {
             @include d-flex-between-middle;           
             list-style-type: none;
             
             > li {
+                @include d-flex-between-middle;     
                 position: relative;
-                padding: 0 0 5px;
+                padding: 5px 0;
                 
                 &:not(:first-child) {
-                    margin-left: 32px;                  
+                    margin-left: $unit * 2;                  
                 }
                 &.has-children {
                     > a:after {
                         content: '';
                         display: block;
                         margin: 0 0 0 8px;
-                        width: 16px;
-                        height: 16px;
+                        width: $unit;
+                        height: $unit;
                         background: url('../img/chevron-down.svg') center center no-repeat;
                         background-size: 10px;
                     }
@@ -71,30 +151,19 @@ header {
                         content: '';
                         display: block;
                         height: 0;
-                        background: $color-secondary;
+                        background: $color-secondary-500;
                         position: absolute;
                         left: 8px;
                         right: 8px;
                         bottom: -4px;
                         z-index: 1;
-                        transition: height 200ms linear;
-                    }                   
-                    &:focus,
-                    &:active,
-                    &:hover {
-
-                         color: $color-primary;  
-                        &:before {
-
-                        }
-                        
-                    }
-                    
+                        transition: height $easing-fast;
+                    }                         
                 }
-                
+                &.active > a,
+                &:focus > a,           
                 &:hover > a {
-                  //  color: $color-primary;  
-                  //  text-decoration: none;
+                    color: $color-primary-900 !important;  
 
                     &:before {
                         height: 4px;         
@@ -102,13 +171,12 @@ header {
                 } 
                 
                 
-                /*  SUBMENU LVL1*/
+                /*  SUBMENU */
                 ul {
                     display: none;
-                    
-            
+
                     position: absolute;
-                    top: 32px;
+                    top: 37px;
                     left: auto;
                     right: auto;
                     z-index: 10;
@@ -121,7 +189,7 @@ header {
                         position: relative;
                         
                         &:not(:first-child) {
-                            border-top: 1px solid $bg-color-secondary;
+                            border-top: 1px solid $color-primary-100;
                         }
                         
                         a {
@@ -132,45 +200,113 @@ header {
                             line-height: 24px;
                             font-weight: 700;
                             font-size: 0.875em;
-                            color: $color-primary;    
+                            color: $color-primary-900;    
                         }
                         &.has-children {
                             > a:after {
                                 content: '';
                                 display: block;
                                 margin: 0 0 0 8px;
-                                width: 16px;
-                                height: 16px;
+                                width: $unit;
+                                height: $unit;
                                 background: url('../img/chevron-down.svg') center center no-repeat;
                                 background-size: 10px;
                                 transform: rotate(-90deg);
                             }
                         }          
-                    
                     }
                     
                     ul {
-                        
                         display: none;
-                        
                         position: absolute;
                         top: 0;
                         right: -240px;
                         z-index: 9;
-                        border-top-left-radius: 0px;
-                        
+                        border-top-left-radius: 0px;   
                     }
                 }   
             }
-             //  li.has-children > ul,
             li:hover {
                 > a {
-                    color: $color-secondary;  
+                    color: $color-secondary-500;  
                 }  
                 > ul {
                     display: block; 
                 }        
             }
         }
+    }
+}
+
+footer {
+    
+    .container {
+        display: block;
+        border-top: $unit/2 solid $color-primary-100;
+        
+        
+        .pad {
+            @include d-flex-between-middle;   
+            padding: $unit * 2 $unit * 4; 
+            
+            
+            .footer-logo {
+                img {
+                    display: block;
+                }
+            }
+            
+            ul {
+                @include reset;
+
+                display: flex;
+                flex-direction: row;
+                list-style-type: none;
+                gap: 2.5* $unit;
+                
+                li {
+                    a {
+                        font-weight: 700;
+                    }
+                }
+            }         
+        }
+    }
+}
+
+
+
+section#services {
+    
+    
+    .container {
+        @include d-flex-column;
+        
+        #services-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: $unit * 4;
+            gap: $unit * 2;
+            
+            
+            .card {
+                position: relative;
+                padding-bottom: $unit * 6;
+                flex-basis: calc(25% - #{$unit} * 1.5);
+                text-align: center;
+                
+                .buttons {
+                    position: absolute;
+                    bottom: $unit * 2;
+                    left: 0;
+                    right: 0;
+                    margin: 0; 
+                }
+            }
+            
+        }
+        
     }
 }

@@ -1,9 +1,210 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/style.scss to edit this template
-*/
-/*
-    Created on : 10. 3. 2024, 10:36:54
-    Author     : janma
-*/
+#toggle-menu {
+    display: none;
+}
 
+@media (max-width: 1472px) {
+
+    header, 
+    footer, 
+    section {
+        padding-left: $unit * 2;
+        padding-right: $unit * 2;      
+    }
+}
+
+@media (max-width: 1200px) {
+
+    section {
+        
+        padding-top: $unit * 2;
+        padding-bottom: $unit * 2;
+        
+        
+        .container { 
+            flex-direction: column;
+            
+            .half {
+                padding-top: $unit;
+                padding-bottom: $unit;    
+                
+                .buttons {
+                    justify-content: center;
+                    margin-top: $unit * 2;
+                }
+                
+                &.with-image {
+
+
+                    img {
+                         max-width: 100%;   
+                    }     
+                }
+            }
+        }
+    }
+    
+    
+    footer .container .pad {
+        flex-direction: column;
+        gap: $unit;
+    }
+    
+}
+@media (max-width: 1000px) {
+
+    
+    header, 
+    footer, 
+    section {
+        padding-left: $unit;
+        padding-right: $unit;      
+    }  
+    
+    .container {
+        padding: 0 $unit;
+    }
+    
+    
+    
+    #services-filter {
+        gap: $unit;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        button {
+            flex-basis: calc(50% - #{$unit});
+        }
+    }
+}
+@media (max-width: 768px) {
+    
+
+    html, body {
+        font-size: 0.9rem;
+        
+    }
+    
+    .buttons {
+        a, button {
+            flex-basis: calc(50% - #{$unit});   
+        }
+    }
+    
+    #services-filter {
+        
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+    
+    section {
+        
+        
+        .container { 
+
+            .half {
+                padding-left: 0;
+                padding-right: 0;    
+            }
+        }
+    }
+    
+    
+    
+    header {
+        
+        nav {
+            
+            > ul {
+                @include d-flex-column;
+
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 1000;
+                width: 0px;
+                overflow: hidden;
+                transition: width $easing-slow;
+                background: $color-primary-100;
+                
+                > li {
+                    @include d-flex-column; 
+                    
+                    margin: 0 auto !important;
+                    width: 240px;
+                    
+                    a {
+                        display: block;
+                        text-align: center;
+                        font-size: 1.4rem;
+                        line-height: 2.5rem;
+                        
+                        &:after {
+                            display: none !important;
+                        }
+                    }
+                    
+                    ul {
+                        display: none !important;
+                    }
+                }
+                
+
+            }      
+            
+            
+            #toggle-menu {
+                display: block;
+                position: relative;
+               // z-index: 10000;
+
+                &:focus {
+                  //  background-image: url('../img/close.svg');
+                
+                    & + ul {
+                        width: 100vw;
+                    }
+                }
+            }  
+        }    
+    }
+    
+    footer {
+        .container {
+            .pad {
+                padding-left: 0;
+                padding-right: 0;
+                
+                ul {
+                    flex-direction: column;
+                    gap: $unit / 2;   
+                    
+                    
+                    li {
+                        
+                        a {
+                            display: block;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+@media (max-width: 600px) {
+
+    .buttons {
+        flex-direction: column;
+        gap: $unit !important;
+        
+        a, 
+        button {
+            flex-basis: 100% !important;   
+        }
+    }
+
+}
