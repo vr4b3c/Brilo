@@ -10,6 +10,10 @@
 
 Simply download source codes and open index.html in your browser :)
 
+## Live demo 
+
+http://brilo.vrabcovo.cz
+
 
 
 
