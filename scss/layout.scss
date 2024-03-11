@@ -18,6 +18,11 @@
             justify-content: center;
         }
     }
+    
+    ul {
+        padding-left: 15px;
+    }
+    
 } 
 
 section {
@@ -99,7 +104,7 @@ header {
         
         ul {
             list-style-type: none;
-            padding: 0px;
+            padding: 0px !important;
             margin: 0px;
         }
 
