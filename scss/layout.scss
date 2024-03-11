@@ -101,145 +101,152 @@ header {
             background-size: contain;
             z-index: 1000;
         }
-        
-        ul {
-            list-style-type: none;
-            padding: 0px !important;
-            margin: 0px;
-        }
-
-        
-        a {
-            color: $color-primary-900;
-            text-transform: uppercase;
-            
-            
-            &:hover {
-                text-decoration: none;    
+        #menu {
+            ul {
+                list-style-type: none;
+                padding: 0px !important;
+                margin: 0px;
             }
-        }
-        
-        
-        > ul {
-            @include d-flex-between-middle;           
-            list-style-type: none;
-            
-            > li {
-                @include d-flex-between-middle;     
-                position: relative;
-                padding: 5px 0;
-                
-                &:not(:first-child) {
-                    margin-left: $unit * 2;                  
+
+
+            a {
+                color: $color-primary-900;
+                text-transform: uppercase;
+
+
+                &:hover {
+                    text-decoration: none;    
                 }
-                &.has-children {
-                    > a:after {
-                        content: '';
-                        display: block;
-                        margin: 0 0 0 8px;
-                        width: $unit;
-                        height: $unit;
-                        background: url('../img/chevron-down.svg') center center no-repeat;
-                        background-size: 10px;
+            }
+
+            > ul {
+                @include d-flex-between-middle;           
+                list-style-type: none;
+
+                > li {
+                    @include d-flex-between-middle;     
+                    position: relative;
+                    padding: 5px 0;
+
+                    &:not(:first-child) {
+                        margin-left: $unit * 2;                  
                     }
-                }
-                
-                
-                > a {
-                    @include d-flex-between-middle;   
-                    position: relative;                    
-                    padding: 0 8px;
-                    line-height: 28px;
-                    font-weight: 700;
-
-                    &:before {
-                        content: '';
-                        display: block;
-                        height: 0;
-                        background: $color-secondary-500;
-                        position: absolute;
-                        left: 8px;
-                        right: 8px;
-                        bottom: -4px;
-                        z-index: 1;
-                        transition: height $easing-fast;
-                    }                         
-                }
-                &.active > a,
-                &:focus > a,           
-                &:hover > a {
-                    color: $color-primary-900 !important;  
-
-                    &:before {
-                        height: 4px;         
-                    }
-                } 
-                
-                
-                /*  SUBMENU */
-                ul {
-                    display: none;
-
-                    position: absolute;
-                    top: 37px;
-                    left: auto;
-                    right: auto;
-                    z-index: 10;
-                    width: 240px;
-                    border-radius: 8px;
-                    background: #fff; 
-                    box-shadow: 0px 3px 15px 0px #00065B1A;
-                    
-                    li {
-                        position: relative;
-                        
-                        &:not(:first-child) {
-                            border-top: 1px solid $color-primary-100;
+                    &.has-children {
+                        > a:after {
+                            content: '';
+                            display: block;
+                            margin: 0 0 0 8px;
+                            width: $unit;
+                            height: $unit;
+                            background: url('../img/chevron-down.svg') center center no-repeat;
+                            background-size: 10px;
                         }
-                        
-                        a {
-                            @include d-flex-between-middle;
-                            position: relative;
-                            padding: 16px;
-                            
-                            line-height: 24px;
-                            font-weight: 700;
-                            font-size: 0.875em;
-                            color: $color-primary-900;    
-                        }
-                        &.has-children {
-                            > a:after {
-                                content: '';
-                                display: block;
-                                margin: 0 0 0 8px;
-                                width: $unit;
-                                height: $unit;
-                                background: url('../img/chevron-down.svg') center center no-repeat;
-                                background-size: 10px;
-                                transform: rotate(-90deg);
-                            }
-                        }          
                     }
-                    
+
+
+                    > a {
+                        @include d-flex-between-middle;   
+                        position: relative;                    
+                        padding: 0 8px;
+                        line-height: 28px;
+                        font-weight: 700;
+
+                        &:before {
+                            content: '';
+                            display: block;
+                            height: 0;
+                            background: $color-secondary-500;
+                            position: absolute;
+                            left: 8px;
+                            right: 8px;
+                            bottom: -4px;
+                            z-index: 1;
+                            transition: height $easing-fast;
+                        }                         
+                    }
+                    &.active > a,
+                    &:focus > a,           
+                    &:hover > a {
+                        color: $color-primary-900 !important;  
+
+                        &:before {
+                            height: 4px;         
+                        }
+                    } 
+
+
+                    /*  SUBMENU */
                     ul {
                         display: none;
+
                         position: absolute;
-                        top: 0;
-                        right: -240px;
-                        z-index: 9;
-                        border-top-left-radius: 0px;   
-                    }
-                }   
-            }
-            li:hover {
-                > a {
-                    color: $color-secondary-500;  
-                }  
-                > ul {
-                    display: block; 
-                }        
+                        top: 37px;
+                        left: auto;
+                        right: auto;
+                        z-index: 10;
+                        width: 240px;
+                        border-radius: 8px;
+                        background: #fff; 
+                        box-shadow: 0px 3px 15px 0px #00065B1A;
+
+                        li {
+                            position: relative;
+
+                            &:not(:first-child) {
+                                border-top: 1px solid $color-primary-100;
+                            }
+
+                            a {
+                                @include d-flex-between-middle;
+                                position: relative;
+                                padding: 16px;
+
+                                line-height: 24px;
+                                font-weight: 700;
+                                font-size: 0.875em;
+                                color: $color-primary-900;    
+                            }
+                            &.has-children {
+                                > a:after {
+                                    content: '';
+                                    display: block;
+                                    margin: 0 0 0 8px;
+                                    width: $unit;
+                                    height: $unit;
+                                    background: url('../img/chevron-down.svg') center center no-repeat;
+                                    background-size: 10px;
+                                    transform: rotate(-90deg);
+                                }
+                            }          
+                        }
+
+                        ul {
+                            display: none;
+                            position: absolute;
+                            top: 0;
+                            right: -240px;
+                            z-index: 9;
+                            border-top-left-radius: 0px;   
+                        }
+                    }   
+                }
+                li:hover {
+                    > a {
+                        color: $color-secondary-500;  
+                    }  
+                    > ul {
+                        display: block; 
+                    }        
+                }
+            }    
+            
+            
+            
+            &.active {
+                
             }
         }
+
     }
 }
 

@@ -1,7 +1,15 @@
 
 $( document ).ready(function() {
 
-
+    /* MENU */
+    $(document).on("click", "#toggle-menu", function() {
+        
+        $("#menu").toggleClass("open");
+    });  
+    
+    
+    
+    
 
 
     /* SERVICES FILTER */
